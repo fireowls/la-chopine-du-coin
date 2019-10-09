@@ -49,7 +49,7 @@ jobs:
       - checkout_restore_cache
       - run: npm run build:prod
       - persist_to_workspace:
-          root: ~./
+          root: .
           paths:
             - dist/*
   deploy:
@@ -57,7 +57,7 @@ jobs:
     steps:
       - checkout_restore_cache
       - attach_workspace:
-          at: ~./
+          at: .
       - run: npm run deploy
 
 #workflow
