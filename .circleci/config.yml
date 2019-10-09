@@ -49,7 +49,7 @@ jobs:
     executor: node
     steps:
       - checkout_restore_cache
-      - attach_to_workspace:
+      - attach_workspace:
           at: ~/project
       - run: npm run deploy
 
