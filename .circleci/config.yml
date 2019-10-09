@@ -13,6 +13,9 @@ executors:
   node:
     docker:
       - image: circleci/node:10.15.3
+  node_browsers:
+    docker:
+      - image: circleci/node:10-browsers
 
 # jobs
 jobs:
@@ -31,10 +34,14 @@ jobs:
       - checkout_restore_cache
       - run: npm run lint
   test:
-    executor: node
+    executor: node_browsers
     steps:
       - checkout_restore_cache
       - run: npm run test:ci
+  e2e:
+    executor: node_browsers
+    steps:
+      - checkout_restore_cache
       - run: npm run e2e:ci
   build:
     executor: node
@@ -65,12 +72,17 @@ workflows:
       - test:
           requires:
             - install
+      - e2e:
+          requires:
+            - install
       - build:
+          requires:
+            - install
+      - deploy:
           requires:
             - lint
             - test
-      - deploy:
-          requires:
+            - e2e
             - build
           filters:
             branches:
