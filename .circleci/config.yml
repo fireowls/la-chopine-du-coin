@@ -2,7 +2,6 @@ version: 2.1
 
 # command
 command:
-
   checkout_restore_cache:
     steps:
       - checkout
@@ -11,14 +10,12 @@ command:
 
 # executors
 executors:
-
   node:
     docker:
       - image: circleci/node:10.15.3
 
 # jobs
 jobs:
-
   install:
     executor: node
     steps:
@@ -28,20 +25,17 @@ jobs:
           key: dependencies-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-
   lint:
     executor: node
     steps:
       - checkout_restore_cache
       - run: npm run lint
-
   test:
     executor: node
     steps:
       - checkout_restore_cache
       - run: npm run test:ci
       - run: npm run e2e:ci
-  
   build:
     executor: node
     steps:
@@ -51,7 +45,6 @@ jobs:
           root: ~/project
           path:
             - dist/*
-
   deploy:
     executor: node
     steps:
