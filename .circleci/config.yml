@@ -61,7 +61,7 @@ jobs:
       - run: npm run deploy
 
 #workflow
-workflow:
+workflows:
   version: 2.1
   integration:
     jobs:
