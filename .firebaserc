@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "la-chopine-du-coin": {
+      "hosting": {
+        "la-chopine-du-coin": [
+          "la-chopine-du-coin"
+        ]
+      }
+    }
+  }
+}

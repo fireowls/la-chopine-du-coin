@@ -122,8 +122,13 @@
               "devServerTarget": "la-chopine-du-coin:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "la-chopine-du-coin"
 }

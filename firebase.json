@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "la-chopine-du-coin",
+      "public": "dist/la-chopine-du-coin",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
