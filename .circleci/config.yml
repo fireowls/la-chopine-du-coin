@@ -6,7 +6,7 @@ commands:
     steps:
       - checkout
       - restore_cache:
-        key: dependencies-{{ checksum "package-lock.json" }}
+          key: dependencies-{{ checksum "package-lock.json" }}
 
 # executors
 executors:
