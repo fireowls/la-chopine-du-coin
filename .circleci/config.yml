@@ -1,7 +1,7 @@
 version: 2.1
 
 # command
-command:
+commands:
   checkout_restore_cache:
     steps:
       - checkout
