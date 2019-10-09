@@ -6,7 +6,7 @@ commands:
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ checksum "package-lock.json" }}
+          key: dependencies
 
 # executors
 executors:
@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run: npm install
       - save_cache:
-          key: dependencies-{{ checksum "package-lock.json" }}
+          key: dependencies
           paths:
             - ./node_modules
   lint:
