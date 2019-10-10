@@ -23,7 +23,6 @@ jobs:
     executor: node
     steps:
       - checkout_restore_cache
-      - run: ls -l && pwd
       - run: npm install
       - save_cache:
           key: dependencies
