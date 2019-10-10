@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     BrowserModule,
+    NavigationModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
