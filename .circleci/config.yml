@@ -1,0 +1,90 @@
+version: 2.1
+
+# command
+commands:
+  checkout_restore_cache:
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependencies
+
+# executors
+executors:
+  node:
+    docker:
+      - image: circleci/node:10.15.3
+  node_browsers:
+    docker:
+      - image: circleci/node:10-browsers
+
+# jobs
+jobs:
+  install:
+    executor: node
+    steps:
+      - checkout_restore_cache
+      - run: ls -l && pwd
+      - run: npm install
+      - save_cache:
+          key: dependencies
+          paths:
+            - ./node_modules
+  lint:
+    executor: node
+    steps:
+      - checkout_restore_cache
+      - run: npm run lint
+  test:
+    executor: node_browsers
+    steps:
+      - checkout_restore_cache
+      - run: npm run test:ci
+  e2e:
+    executor: node_browsers
+    steps:
+      - checkout_restore_cache
+      - run: npm run e2e:ci
+  build:
+    executor: node
+    steps:
+      - checkout_restore_cache
+      - run: npm run build:prod
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public/*
+  deploy:
+    executor: node
+    steps:
+      - checkout_restore_cache
+      - attach_workspace:
+          at: ./
+      - run: npm run deploy
+
+# workflow
+workflows:
+  version: 2.1
+  integration:
+    jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
+      - e2e:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
+      - deploy:
+          requires:
+            - lint
+            - test
+            - e2e
+            - build
+          filters:
+            branches:
+              only: master
