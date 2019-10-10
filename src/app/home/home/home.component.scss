@@ -1,0 +1,8 @@
+@import "../../../styles/placeholers";
+
+.page {
+    @extend %page-box;
+    min-height: 500px;
+
+    margin: auto auto;
+}

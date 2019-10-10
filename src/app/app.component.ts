@@ -4,10 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template:
   `<app-nav-bar></app-nav-bar>
-  <div class="container">
+  <div class="main-container">
     <router-outlet></router-outlet>
   </div>`
 })
-export class AppComponent {
-  title = 'la-chopine-du-coin';
-}
+export class AppComponent { }

@@ -1,2 +1,16 @@
 @import "styles/styles";
 @import "styles/frameworks/frameworks";
+
+
+// base
+
+html, body {
+    background: $background;
+}
+
+.main-container {
+    @extend .container;
+
+    margin-top: 30px;
+
+}

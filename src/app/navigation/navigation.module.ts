@@ -5,6 +5,7 @@ import { HomeModule } from '../home/home.module';
 
 import { HomeComponent } from '../home/home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MaterialModule } from '../material/material.module';
 
 const routes: Route[] = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Route[] = [
   imports: [
     CommonModule,
     HomeModule,
+    MaterialModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule, NavBarComponent ]

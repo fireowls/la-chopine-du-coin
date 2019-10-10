@@ -1,5 +1,8 @@
+import { info } from './resources/app-info';
+
 export const environment = {
   production: true,
+  appInfo: info,
   firebase: {
     apiKey: 'IzaSyCUbM3STwT6pq6vGDBBdiwH6Ni2blw-lqc',
     authDomain: 'la-chopine-du-coin.firebaseapp.com',
