@@ -59,7 +59,7 @@ jobs:
       - checkout_restore_cache
       - attach_workspace:
           at: ./
-      - run: npm run deploy
+      - run: npm run deploy:ci
 
 # workflow
 workflows:
