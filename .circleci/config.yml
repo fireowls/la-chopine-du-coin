@@ -6,8 +6,7 @@ commands:
     steps:
       - checkout
       - restore_cache:
-          keys: 
-            - dependencies
+          key: dependencies
 
 # executors
 executors:
@@ -27,8 +26,7 @@ jobs:
       - run: ls -l && pwd
       - run: npm install
       - save_cache:
-          keys: 
-            - dependencies
+          key: dependencies
           paths:
             - ./node_modules
   lint:
