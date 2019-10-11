@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from '../material/material.module';
+import { HomeWelcomeComponent } from './home-welcome/home-welcome.component';
 
 
 @NgModule({
-  declarations: [ HomeComponent, RegisterComponent ],
+  declarations: [ HomeComponent, RegisterComponent, HomeWelcomeComponent],
   imports: [ CommonModule, MaterialModule ],
   exports: [ HomeComponent ]
 })

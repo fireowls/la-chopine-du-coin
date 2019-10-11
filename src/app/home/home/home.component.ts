@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +6,6 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  title: string = environment.appInfo.title;
-  description: string = environment.appInfo.description;
 
   constructor() { }
 

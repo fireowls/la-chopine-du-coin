@@ -13,7 +13,7 @@
     "lint": "ng lint",
     "deploy": "npx firebase deploy",
     "deploy:ci": "npm run deploy -- --token $FIREBASE_TOKEN --only hosting",
-    "deploy:prod": "clear && echo \"[WARNING] This command is not safe please don't use that !!!\nwait 30s before runing process...\" && sleep 30 && npm run lint && npm run test:ci && npm run e2e:ci && npm run build:prod && npm run deploy"
+    "deploy:prod": "clear && echo \"[WARNING] This command is not safe please don't use that !!!\" && npm run lint && npm run test:ci && npm run e2e:ci && npm run build:prod && npm run deploy"
   },
   "private": true,
   "dependencies": {
