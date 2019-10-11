@@ -1,0 +1,38 @@
+<form class="home-form">
+
+    <mat-form-field class="full-width">
+        <input matInput type="email" placeholder="Email" />
+    </mat-form-field>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Nom" />
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Prénom" />
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Pseudo">
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Vous êtes ?</mat-label>
+            <mat-select>
+                <mat-option value="chopin">Un chopin</mat-option>
+                <mat-option value="chopine">Une chopine</mat-option>
+                <mat-option value="ewok">Un ewok</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Mot de passe" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Comfirmer mot de passe" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">S'inscrire</button>
+</form>
