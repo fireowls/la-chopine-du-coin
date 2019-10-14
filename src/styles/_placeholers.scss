@@ -1,0 +1,7 @@
+@import "variables";
+
+%page-box {
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba($color: #000, $alpha: 0.1);
+}

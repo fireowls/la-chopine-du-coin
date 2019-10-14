@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$la-chopine-du-coin-primary: mat-palette($mat-indigo);
+$la-chopine-du-coin-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$la-chopine-du-coin-warn: mat-palette($mat-red);
+
+$la-chopine-du-coin-theme: mat-light-theme($la-chopine-du-coin-primary, $la-chopine-du-coin-accent, $la-chopine-du-coin-warn);
+
+@include angular-material-theme($la-chopine-du-coin-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
