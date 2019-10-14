@@ -5,6 +5,7 @@ import { HomeModule } from '../home/home.module';
 
 import { HomeComponent } from '../home/home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 import { MaterialModule } from '../material/material.module';
 
 const routes: Route[] = [
