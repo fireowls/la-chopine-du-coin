@@ -22,7 +22,7 @@ jobs:
   install:
     executor: node
     steps:
-      - checkout_restore_cache
+      - checkout
       - run: npm install
       - save_cache:
           key: dependencies
