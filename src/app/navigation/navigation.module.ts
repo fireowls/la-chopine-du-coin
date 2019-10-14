@@ -7,10 +7,11 @@ import { HomeComponent } from '../home/home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { MaterialModule } from '../material/material.module';
+import { LoginModule } from '../login/login.module';
 
 const routes: Route[] = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent }
 ];
 
 
@@ -20,7 +21,8 @@ const routes: Route[] = [
     CommonModule,
     HomeModule,
     MaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    LoginModule
   ],
   exports: [ RouterModule, NavBarComponent ]
 })
