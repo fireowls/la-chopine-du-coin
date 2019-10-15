@@ -1,29 +1,25 @@
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
 
     <mat-form-field class="full-width">
-        <input matInput type="email" id="email" placeholder="Email" formControlName="email" />
-        <app-form-error [control]="email"></app-form-error>
+        <input matInput type="email" id="email" placeholder="Email" formControlName="email" required />
     </mat-form-field>
 
     <div class="row">
         <mat-form-field class="col-md-6">
-            <input matInput placeholder="Nom" formControlName="firstName" />
-            <app-form-error [control]="firstName"></app-form-error>
+            <input matInput placeholder="Nom" formControlName="lastName" (keyup)="onKey($event)" required />
         </mat-form-field>
         <mat-form-field class="col-md-6">
-            <input matInput placeholder="lastName" formControlName="lastName" />
-            <app-form-error [control]="email"></app-form-error>
+            <input matInput placeholder="Prénom" formControlName="firstName" (keyup)="onKey($event)" required />
         </mat-form-field>
     </div>
 
     <div class="row">
         <mat-form-field class="col-md-6">
-            <input matInput placeholder="Pseudo" formControlName="pseudo">
-            <app-form-error [control]="pseudo"></app-form-error>
+            <input matInput placeholder="Pseudo" formControlName="pseudo" (keyup)="changePseudo = pseudo.value !== '' ? true : false" required >
         </mat-form-field>
         <mat-form-field class="col-md-6">
             <mat-label>Vous êtes ?</mat-label>
-            <mat-select>
+            <mat-select formControlName="gender">
                 <mat-option value="chopin">Un chopin</mat-option>
                 <mat-option value="chopine">Une chopine</mat-option>
                 <mat-option value="ewok">Un ewok</mat-option>
@@ -32,14 +28,15 @@
     </div>
 
     <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="Mot de passe" formControlName="password" />
-        <app-form-error [control]="email"></app-form-error>
+        <input matInput type="password" placeholder="Mot de passe" formControlName="password" (keyup)="checkPassword()" required />
     </mat-form-field>
+    <div *ngIf="passwordError" class="form-error" >{{ passwordError }}</div>
     <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="Comfirmer mot de passe" formControlName="comfirmPassword"/>
-        <app-form-error [control]="comfirmPassword"></app-form-error>
+        <input matInput type="password" placeholder="Comfirmer mot de passe" formControlName="comfirmPassword" (keyup)="checkComfirmPassword()" />
     </mat-form-field>
+    <div *ngIf="comfirmPasswordError" class="form-error">{{ comfirmPasswordError }}</div>
     
-    <button type="submit" mat-raised-button color="primary" class="full-width">S'inscrire</button>
+    <p class="legend">* obligatoire</p>
+    <button type="submit" mat-raised-button color="primary" class="full-width" >S'inscrire</button>
     
 </form>

@@ -16,7 +16,7 @@ const routes: Route[] = [
 
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [ NavBarComponent ],
   imports: [
     CommonModule,
     HomeModule,

@@ -7,7 +7,6 @@ import { SigninFormComponent } from './signin-form/signin-form.component';
 
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormErrorComponent } from './form-error/form-error.component';
 import { FireModule } from '../fire/fire.module';
 
 import { AuthService } from './auth.service';
@@ -23,7 +22,11 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [LoginPagesComponent, SignupFormComponent, SigninFormComponent, FormErrorComponent],
+  declarations: [
+    LoginPagesComponent,
+    SignupFormComponent,
+    SigninFormComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
