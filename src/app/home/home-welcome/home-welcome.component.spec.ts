@@ -16,8 +16,4 @@ describe('HomeWelcomeComponent', () => {
     expect(component.title).toBe(environment.appInfo.title);
   });
 
-  it('test dexcription', () => {
-    expect(component.description).toBe(environment.appInfo.description);
-  });
-
 });
