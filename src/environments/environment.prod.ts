@@ -4,7 +4,7 @@ export const environment = {
   production: true,
   appInfo: info,
   firebase: {
-    apiKey: 'IzaSyCUbM3STwT6pq6vGDBBdiwH6Ni2blw-lqc',
+    apiKey: 'AIzaSyCUbM3STwT6pq6vGDBBdiwH6Ni2blw-lqc',
     authDomain: 'la-chopine-du-coin.firebaseapp.com',
     databaseURL: 'https://la-chopine-du-coin.firebaseio.com',
     projectId: 'la-chopine-du-coin',

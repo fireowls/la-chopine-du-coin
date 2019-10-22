@@ -1,17 +1,17 @@
-import { AppPage } from './app.po';
+import { AppPage } from '../app.po';
 import { browser, logging } from 'protractor';
+import { environment } from '../../../src/environments/environment';
 
-describe('workspace-project App', () => {
+describe('home page test', () => {
   let page: AppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AppPage('');
+    page.navigateTo();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    // expect(page.getTitleText()).toEqual('la-chopine-du-coin app is running!');
-    expect(true).toBeTruthy();
+  it('should display title app', () => {
+    expect(page.getContentSelector('app-home-welcome div h3')).toBe(environment.appInfo.title);
   });
 
   afterEach(async () => {
