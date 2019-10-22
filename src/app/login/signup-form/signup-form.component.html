@@ -1,0 +1,42 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+
+    <mat-form-field class="full-width">
+        <input matInput type="email" id="email" placeholder="Email" formControlName="email" required />
+    </mat-form-field>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Nom" formControlName="lastName" (keyup)="onKey($event)" required />
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Prénom" formControlName="firstName" (keyup)="onKey($event)" required />
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Pseudo" formControlName="pseudo" (keyup)="changePseudo = pseudo.value !== '' ? true : false" required >
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Vous êtes ?</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="chopin">Un chopin</mat-option>
+                <mat-option value="chopine">Une chopine</mat-option>
+                <mat-option value="ewok">Un ewok</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Mot de passe" formControlName="password" (keyup)="checkPassword()" required />
+    </mat-form-field>
+    <div *ngIf="passwordError" class="form-error" >{{ passwordError }}</div>
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Comfirmer mot de passe" formControlName="comfirmPassword" (keyup)="checkComfirmPassword()" />
+    </mat-form-field>
+    <div *ngIf="comfirmPasswordError" class="form-error">{{ comfirmPasswordError }}</div>
+    
+    <p class="legend">* obligatoire</p>
+    <button type="submit" mat-raised-button color="primary" class="full-width" >S'inscrire</button>
+    
+</form>

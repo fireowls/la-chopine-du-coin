@@ -2,7 +2,6 @@
 
 .page {
     @extend %page-box;
-    min-height: 400px;
-
     margin: auto auto;
+    padding: 30px;
 }
