@@ -9,5 +9,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+const shouldBeAconst = 'ma variable';
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
