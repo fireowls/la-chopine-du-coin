@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -91,4 +91,5 @@ export class SignupFormComponent implements OnInit {
   get pseudo() {
     return this.signupForm.get('pseudo');
   }
+
 }

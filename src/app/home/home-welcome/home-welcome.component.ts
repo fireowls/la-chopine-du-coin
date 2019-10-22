@@ -9,7 +9,6 @@ import { environment } from '../../../environments/environment';
 export class HomeWelcomeComponent implements OnInit {
 
   title: string = environment.appInfo.title;
-  description: string = environment.appInfo.description;
 
   constructor() { }
 
