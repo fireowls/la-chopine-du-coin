@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FireModule } from '../fire/fire.module';
 
 import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Route[] = [
   {
@@ -25,7 +26,8 @@ const routes: Route[] = [
   declarations: [
     LoginPagesComponent,
     SignupFormComponent,
-    SigninFormComponent
+    SigninFormComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
