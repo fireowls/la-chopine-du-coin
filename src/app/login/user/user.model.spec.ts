@@ -1,4 +1,4 @@
-import { User, SexType } from "./user.model";
+import { User, SexType } from './user.model';
 
 describe('test the user model', () => {
 

@@ -22,11 +22,11 @@ export class User {
         if (this.nbImage === 0 || !this.containsImage(path)) {
             return false;
         }
-        const newImages: string[] = null;
+        const newImages: string[] = [];
         let tmp = 0;
         for (const i in this.images) {
             if (i.localeCompare(this.images[tmp]) !== 0) {
-                newImages[tmp] = i;
+                newImages.push(i);
                 tmp ++;
             }
         }
