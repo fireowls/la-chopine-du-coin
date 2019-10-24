@@ -1,10 +1,11 @@
 import { environment } from '../../../environments/environment';
 
 export class User {
-    images: string[];
-    nbImage: number;
+    public images: string[];
+    public nbImage: number;
 
     constructor(public id: string, public firstName: string, public lastName: string, public age: number, public sex: SexType) {
+        this.images = [];
         this.nbImage = 0;
     }
 
@@ -12,7 +13,7 @@ export class User {
         if (this.nbImage === environment.appInfo.nbImageMax) {
             return false;
         }
-        this.images[this.nbImage] = path;
+        this.images.push(path);
         this.nbImage ++;
         return true;
     }
