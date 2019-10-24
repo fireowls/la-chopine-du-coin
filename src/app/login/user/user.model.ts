@@ -4,12 +4,12 @@ export class User {
     images: string[];
     nbImage: number;
 
-    constructor(public id: string, public firstName: string, public lastName: string, public age: number, public sex: sexType) {
+    constructor(public id: string, public firstName: string, public lastName: string, public age: number, public sex: SexType) {
         this.nbImage = 0;
     }
 
     public addImage(path: string): boolean {
-        if (this.nbImage == environment.appInfo.nbImageMax) {
+        if (this.nbImage === environment.appInfo.nbImageMax) {
             return false;
         }
         this.images[this.nbImage] = path;
@@ -18,13 +18,13 @@ export class User {
     }
 
     public removeImage(path: string): boolean {
-        if (this.nbImage == 0 || !this.containsImage(path)) {
+        if (this.nbImage === 0 || !this.containsImage(path)) {
             return false;
         }
-        let newImages: string[];
-        let tmp: number = 0;
-        for (let i in this.images) {
-            if (i.localeCompare(this.images[tmp]) != 0) {
+        const newImages: string[] = null;
+        let tmp = 0;
+        for (const i in this.images) {
+            if (i.localeCompare(this.images[tmp]) !== 0) {
                 newImages[tmp] = i;
                 tmp ++;
             }
@@ -34,7 +34,7 @@ export class User {
     }
 
     private containsImage(path: string): boolean {
-        for (let i in this.images) {
+        for (const i in this.images) {
             if (i.localeCompare(path) === 0) {
                 return true;
             }
@@ -44,7 +44,7 @@ export class User {
 
 }
 
-enum sexType {
+export enum SexType {
     CHOPIN,
     CHOPINE,
     OTHER,
