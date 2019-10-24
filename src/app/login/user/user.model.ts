@@ -4,7 +4,7 @@ export class User {
     public images: string[];
     public nbImage: number;
 
-    constructor(public id: string, public firstName: string, public lastName: string, public age: number, public sex: SexType) {
+    constructor(public id: string, public firstName: string, public lastName: string, public birthday: Date, public sex: SexType) {
         this.images = [];
         this.nbImage = 0;
     }
@@ -41,6 +41,10 @@ export class User {
             }
         }
         return false;
+    }
+
+    get age() {
+        return (Math.trunc((new Date().valueOf() - this.birthday.valueOf()) / 1000 / 60 / 60 / 24 / 365));
     }
 
 }
