@@ -4,8 +4,8 @@ describe('test the user model', () => {
 
     let user: User;
 
-    beforeAll(() => {
-        user = new User('42', 'jean', 'michel', 42, SexType.CHOPIN);
+    beforeEach(() => {
+        user = new User('42', 'jean', 'michel', new Date('2000-07-20T00:00:00'), SexType.CHOPIN);
     });
 
     it('is created', () => {
@@ -17,8 +17,14 @@ describe('test the user model', () => {
         expect(user.nbImage).toBe(1);
     });
 
+    it('contains image', () => {
+        user.addImage('test');
+        expect(user.containsImage('test')).toBeTruthy();
+    });
+
     it('remove image', () => {
-        user.removeImage('test');
+        user.addImage('test');
+        expect(user.removeImage('test')).toBeTruthy();
         expect(user.nbImage).toBe(0);
     });
 

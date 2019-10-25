@@ -14,28 +14,29 @@ export class User {
             return false;
         }
         this.images.push(path);
-        this.nbImage ++;
+        this.nbImage += 1;
         return true;
     }
 
     public removeImage(path: string): boolean {
-        if (this.nbImage === 0 || !this.containsImage(path)) {
+        if (!this.containsImage(path)) {
             return false;
         }
         const newImages: string[] = [];
         let tmp = 0;
-        for (const i in this.images) {
+        for (const i of this.images) {
             if (i.localeCompare(this.images[tmp]) !== 0) {
                 newImages.push(i);
                 tmp ++;
             }
         }
+        this.images = newImages;
         this.nbImage --;
         return true;
     }
 
-    private containsImage(path: string): boolean {
-        for (const i in this.images) {
+    public containsImage(path: string): boolean {
+        for (const i of this.images) {
             if (i.localeCompare(path) === 0) {
                 return true;
             }
@@ -50,7 +51,7 @@ export class User {
 }
 
 export enum SexType {
-    CHOPIN,
-    CHOPINE,
-    OTHER,
+    CHOPIN = 'Chopin',
+    CHOPINE = 'Chopine',
+    OTHER = 'Other',
 }
