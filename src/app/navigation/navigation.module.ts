@@ -1,29 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Route, RouterModule } from '@angular/router';
-import { HomeModule } from '../home/home.module';
-
-import { HomeComponent } from '../home/home/home.component';
+import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
 import { MaterialModule } from '../material/material.module';
-import { LoginModule } from '../login/login.module';
-
-const routes: Route[] = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent }
-];
+import { NavigationRoutingModule } from './navigation-routing.module';
+import { PagesModule } from '../pages/pages.module';
 
 
 @NgModule({
   declarations: [ NavBarComponent ],
   imports: [
     CommonModule,
-    HomeModule,
     MaterialModule,
-    RouterModule.forRoot(routes),
-    LoginModule
+    PagesModule,
+    RouterModule,
+    NavigationRoutingModule
   ],
-  exports: [ RouterModule, NavBarComponent ]
+  exports: [NavBarComponent, NavigationRoutingModule ]
 })
 export class NavigationModule { }
