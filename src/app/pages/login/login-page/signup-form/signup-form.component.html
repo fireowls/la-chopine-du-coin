@@ -1,0 +1,45 @@
+<h2 class="text-center">Créer un compte</h2>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+
+    <mat-form-field class="full-width">
+        <input matInput type="email" id="email" placeholder="Email" formControlName="email" required />
+        <mat-error>Entrez une adresse email valide</mat-error>
+    </mat-form-field>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Nom" formControlName="lastName" required />
+            <mat-error>Vous devez obligatoirement inscrire votre nom</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Prénom" formControlName="firstName" required />
+            <mat-error>Vous devez obligatoirement inscrire votre prénom</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field class="col-md-6">
+            <input matInput placeholder="Pseudo" formControlName="pseudo" (keyup)="changePseudo = pseudo.value !== '' ? true : false" required >
+            <mat-error>Vous devez obligatoirement inscrire un pseudo</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Vous êtes ?</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="chopin">Un chopin</mat-option>
+                <mat-option value="chopine">Une chopine</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Mot de passe" formControlName="password" required />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Comfirmer mot de passe" formControlName="comfirmPassword" required />
+    </mat-form-field>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+    <button type="submit" mat-raised-button color="accent" class="full-width" [disabled]="!signupForm.valid" >S'inscrire</button>
+    <button type="submit" mat-button class="full-width" [routerLink]="['/login', 'signin']">J'ai deja un compte</button>
+    
+</form>
